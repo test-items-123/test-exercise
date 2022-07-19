@@ -1,0 +1,9 @@
+docker_users:
+  - "centos"
+
+user_name: "centos"
+user_pass: 'cenospasswd'
+user_groups:
+      - "{{ user_name }}"
+
+timezone: Europe/Kiev

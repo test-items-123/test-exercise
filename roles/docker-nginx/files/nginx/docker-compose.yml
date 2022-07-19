@@ -1,0 +1,11 @@
+version: '3'
+services:
+  nginx-hello-world:
+    image: nginx:1.23.0-alpine
+    container_name: hello-world
+    restart: always
+    ports:
+      - 0.0.0.0:80:80
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html
+      - /etc/localtime:/etc/localtime:ro

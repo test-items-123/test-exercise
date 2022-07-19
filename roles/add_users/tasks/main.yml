@@ -1,0 +1,15 @@
+- name: Create group
+  group:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ user_groups }}"
+
+- name: add user {{ user_name }} with password
+  become: true
+  user:
+      name: "{{ user_name }}"
+      groups: "{{ user_groups }}"
+      shell: /bin/bash
+      password: "{{ user_pass | string | password_hash('sha512') }}"
+      append: yes
+      update_password: on_create

@@ -1,0 +1,14 @@
+---
+    - name: StartHelloSystem
+      hosts: examplehosts
+      become: true
+      remote_user: root
+      gather_facts: true
+      vars_files:
+        - ./vars/config-centos7.yml
+      roles:
+         - role: add_users
+         - role: docker
+         - role: docker-nginx
+         - role: reboot
+
